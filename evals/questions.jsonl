@@ -1,0 +1,32 @@
+{"id": "q01", "question": "Where is reward expiration calculated?", "relevant": ["code/RewardExpirationService.java", "docs/rewards-architecture.md"], "type": "keyword"}
+{"id": "q02", "question": "How many days until reward points expire?", "relevant": ["code/RewardExpirationService.java", "docs/rewards-architecture.md"], "type": "keyword"}
+{"id": "q03", "question": "Which job removes expired points from balances?", "relevant": ["code/ExpirePointsJob.java", "docs/rewards-architecture.md"], "type": "keyword"}
+{"id": "q04", "question": "What time does the expire points job run?", "relevant": ["code/ExpirePointsJob.java", "docs/rewards-architecture.md"], "type": "keyword"}
+{"id": "q05", "question": "Why did points expire a day early in a leap year?", "relevant": ["incidents/INC-101.md"], "type": "keyword"}
+{"id": "q06", "question": "What caused members to get double points?", "relevant": ["incidents/INC-102.md"], "type": "keyword"}
+{"id": "q07", "question": "How does the transaction consumer avoid awarding points twice?", "relevant": ["code/TransactionConsumer.java", "incidents/INC-102.md"], "type": "keyword"}
+{"id": "q08", "question": "Which Kafka topic carries transactions?", "relevant": ["code/TransactionConsumer.java", "docs/rewards-architecture.md"], "type": "keyword"}
+{"id": "q09", "question": "How many points does a Gold member earn per dollar?", "relevant": ["code/TransactionConsumer.java", "docs/rewards-architecture.md"], "type": "keyword"}
+{"id": "q10", "question": "What qualifies a transaction for earning points?", "relevant": ["docs/rewards-architecture.md", "code/TransactionConsumer.java"], "type": "keyword"}
+{"id": "q11", "question": "What endpoint returns a member's point balance?", "relevant": ["code/RewardsController.java", "docs/rewards-architecture.md"], "type": "keyword"}
+{"id": "q12", "question": "How do I redeem points through the API?", "relevant": ["code/RewardsController.java", "docs/rewards-architecture.md"], "type": "keyword"}
+{"id": "q13", "question": "What happens if you try to redeem zero points?", "relevant": ["code/RewardsController.java"], "type": "keyword"}
+{"id": "q14", "question": "Where are reward point ledgers stored?", "relevant": ["docs/rewards-architecture.md"], "type": "keyword"}
+{"id": "q15", "question": "How long are balances cached in Redis?", "relevant": ["docs/rewards-architecture.md"], "type": "keyword"}
+{"id": "q16", "question": "What should I do when redemption returns INSUFFICIENT_POINTS?", "relevant": ["docs/redemption-runbook.md"], "type": "keyword"}
+{"id": "q17", "question": "How do I fix a balance that doesn't match the ledger?", "relevant": ["docs/redemption-runbook.md"], "type": "keyword"}
+{"id": "q18", "question": "Who do I page for rewards problems?", "relevant": ["docs/redemption-runbook.md"], "type": "keyword"}
+{"id": "q19", "question": "How does a member become Gold?", "relevant": ["docs/membership-architecture.md", "code/TierRecalculationJob.java"], "type": "keyword"}
+{"id": "q20", "question": "When are membership tiers recalculated?", "relevant": ["code/TierRecalculationJob.java", "docs/membership-architecture.md"], "type": "keyword"}
+{"id": "q21", "question": "What is the spending threshold for the Gold tier?", "relevant": ["code/TierRecalculationJob.java", "docs/membership-architecture.md"], "type": "keyword"}
+{"id": "q22", "question": "What account statuses can a member have?", "relevant": ["docs/membership-architecture.md"], "type": "keyword"}
+{"id": "q23", "question": "What happens to unredeemed points when an account is closed?", "relevant": ["docs/membership-architecture.md"], "type": "keyword"}
+{"id": "q24", "question": "Why were suspended members still earning points?", "relevant": ["incidents/INC-103.md"], "type": "keyword"}
+{"id": "q25", "question": "How long does Rewards cache membership lookups?", "relevant": ["docs/membership-architecture.md", "incidents/INC-103.md"], "type": "keyword"}
+{"id": "q26", "question": "Do suspended members earn rewards?", "relevant": ["docs/membership-architecture.md", "code/TransactionConsumer.java", "incidents/INC-103.md"], "type": "keyword"}
+{"id": "q27", "question": "When do a customer's loyalty credits stop being valid?", "relevant": ["code/RewardExpirationService.java", "docs/rewards-architecture.md"], "type": "paraphrase"}
+{"id": "q28", "question": "Has there ever been an outage where customers were overpaid?", "relevant": ["incidents/INC-102.md"], "type": "paraphrase"}
+{"id": "q29", "question": "Which class checks that a customer is in good standing before crediting them?", "relevant": ["code/TransactionConsumer.java"], "type": "paraphrase"}
+{"id": "q30", "question": "What is the nightly cleanup that takes away old credits?", "relevant": ["code/ExpirePointsJob.java"], "type": "paraphrase"}
+{"id": "q31", "question": "How do VIP customers get upgraded?", "relevant": ["code/TierRecalculationJob.java", "docs/membership-architecture.md"], "type": "paraphrase"}
+{"id": "q32", "question": "Why did customers lose their credits one day too soon?", "relevant": ["incidents/INC-101.md"], "type": "paraphrase"}
