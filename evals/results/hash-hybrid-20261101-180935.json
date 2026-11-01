@@ -1,0 +1,656 @@
+{
+  "provider": "hash",
+  "mode": "hybrid",
+  "k": 5,
+  "summary": {
+    "all": {
+      "n": 32,
+      "hit@1": 0.719,
+      "hit@5": 1.0,
+      "recall@5": 0.88,
+      "mrr": 0.852
+    },
+    "keyword": {
+      "n": 26,
+      "hit@1": 0.846,
+      "hit@5": 1.0,
+      "recall@5": 0.891,
+      "mrr": 0.923
+    },
+    "paraphrase": {
+      "n": 6,
+      "hit@1": 0.167,
+      "hit@5": 1.0,
+      "recall@5": 0.833,
+      "mrr": 0.542
+    }
+  },
+  "rows": [
+    {
+      "id": "q01",
+      "type": "keyword",
+      "question": "Where is reward expiration calculated?",
+      "relevant": [
+        "code/RewardExpirationService.java",
+        "docs/rewards-architecture.md"
+      ],
+      "retrieved": [
+        "docs/rewards-architecture.md",
+        "code/RewardExpirationService.java",
+        "code/ExpirePointsJob.java",
+        "incidents/INC-101.md",
+        "docs/membership-architecture.md"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q02",
+      "type": "keyword",
+      "question": "How many days until reward points expire?",
+      "relevant": [
+        "code/RewardExpirationService.java",
+        "docs/rewards-architecture.md"
+      ],
+      "retrieved": [
+        "code/RewardExpirationService.java",
+        "docs/rewards-architecture.md",
+        "incidents/INC-101.md",
+        "incidents/INC-103.md",
+        "code/ExpirePointsJob.java"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q03",
+      "type": "keyword",
+      "question": "Which job removes expired points from balances?",
+      "relevant": [
+        "code/ExpirePointsJob.java",
+        "docs/rewards-architecture.md"
+      ],
+      "retrieved": [
+        "docs/rewards-architecture.md",
+        "docs/redemption-runbook.md",
+        "incidents/INC-101.md",
+        "incidents/INC-102.md",
+        "incidents/INC-103.md"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "rr": 1.0
+    },
+    {
+      "id": "q04",
+      "type": "keyword",
+      "question": "What time does the expire points job run?",
+      "relevant": [
+        "code/ExpirePointsJob.java",
+        "docs/rewards-architecture.md"
+      ],
+      "retrieved": [
+        "docs/redemption-runbook.md",
+        "docs/rewards-architecture.md",
+        "incidents/INC-101.md",
+        "code/RewardExpirationService.java",
+        "incidents/INC-103.md"
+      ],
+      "hit@1": 0.0,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "rr": 0.5
+    },
+    {
+      "id": "q05",
+      "type": "keyword",
+      "question": "Why did points expire a day early in a leap year?",
+      "relevant": [
+        "incidents/INC-101.md"
+      ],
+      "retrieved": [
+        "incidents/INC-101.md",
+        "docs/rewards-architecture.md",
+        "code/RewardExpirationService.java",
+        "incidents/INC-102.md",
+        "code/ExpirePointsJob.java"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q06",
+      "type": "keyword",
+      "question": "What caused members to get double points?",
+      "relevant": [
+        "incidents/INC-102.md"
+      ],
+      "retrieved": [
+        "incidents/INC-102.md",
+        "docs/rewards-architecture.md",
+        "incidents/INC-103.md",
+        "docs/membership-architecture.md",
+        "code/TransactionConsumer.java"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q07",
+      "type": "keyword",
+      "question": "How does the transaction consumer avoid awarding points twice?",
+      "relevant": [
+        "code/TransactionConsumer.java",
+        "incidents/INC-102.md"
+      ],
+      "retrieved": [
+        "docs/rewards-architecture.md",
+        "incidents/INC-102.md",
+        "incidents/INC-101.md",
+        "code/RewardExpirationService.java",
+        "docs/redemption-runbook.md"
+      ],
+      "hit@1": 0.0,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "rr": 0.5
+    },
+    {
+      "id": "q08",
+      "type": "keyword",
+      "question": "Which Kafka topic carries transactions?",
+      "relevant": [
+        "code/TransactionConsumer.java",
+        "docs/rewards-architecture.md"
+      ],
+      "retrieved": [
+        "incidents/INC-102.md",
+        "docs/rewards-architecture.md",
+        "code/TransactionConsumer.java",
+        "code/RewardExpirationService.java",
+        "incidents/INC-101.md"
+      ],
+      "hit@1": 0.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 0.5
+    },
+    {
+      "id": "q09",
+      "type": "keyword",
+      "question": "How many points does a Gold member earn per dollar?",
+      "relevant": [
+        "code/TransactionConsumer.java",
+        "docs/rewards-architecture.md"
+      ],
+      "retrieved": [
+        "docs/rewards-architecture.md",
+        "code/TransactionConsumer.java",
+        "docs/membership-architecture.md",
+        "incidents/INC-103.md",
+        "incidents/INC-102.md"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q10",
+      "type": "keyword",
+      "question": "What qualifies a transaction for earning points?",
+      "relevant": [
+        "docs/rewards-architecture.md",
+        "code/TransactionConsumer.java"
+      ],
+      "retrieved": [
+        "docs/rewards-architecture.md",
+        "incidents/INC-101.md",
+        "incidents/INC-102.md",
+        "docs/membership-architecture.md",
+        "code/RewardExpirationService.java"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "rr": 1.0
+    },
+    {
+      "id": "q11",
+      "type": "keyword",
+      "question": "What endpoint returns a member's point balance?",
+      "relevant": [
+        "code/RewardsController.java",
+        "docs/rewards-architecture.md"
+      ],
+      "retrieved": [
+        "docs/rewards-architecture.md",
+        "docs/redemption-runbook.md",
+        "code/TransactionConsumer.java",
+        "incidents/INC-103.md",
+        "docs/membership-architecture.md"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "rr": 1.0
+    },
+    {
+      "id": "q12",
+      "type": "keyword",
+      "question": "How do I redeem points through the API?",
+      "relevant": [
+        "code/RewardsController.java",
+        "docs/rewards-architecture.md"
+      ],
+      "retrieved": [
+        "code/RewardsController.java",
+        "docs/rewards-architecture.md",
+        "docs/redemption-runbook.md",
+        "incidents/INC-102.md",
+        "incidents/INC-101.md"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q13",
+      "type": "keyword",
+      "question": "What happens if you try to redeem zero points?",
+      "relevant": [
+        "code/RewardsController.java"
+      ],
+      "retrieved": [
+        "code/RewardsController.java",
+        "docs/rewards-architecture.md",
+        "incidents/INC-102.md",
+        "code/TransactionConsumer.java",
+        "docs/redemption-runbook.md"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q14",
+      "type": "keyword",
+      "question": "Where are reward point ledgers stored?",
+      "relevant": [
+        "docs/rewards-architecture.md"
+      ],
+      "retrieved": [
+        "docs/rewards-architecture.md",
+        "docs/redemption-runbook.md",
+        "code/RewardExpirationService.java",
+        "code/ExpirePointsJob.java",
+        "docs/membership-architecture.md"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q15",
+      "type": "keyword",
+      "question": "How long are balances cached in Redis?",
+      "relevant": [
+        "docs/rewards-architecture.md"
+      ],
+      "retrieved": [
+        "docs/rewards-architecture.md",
+        "docs/redemption-runbook.md",
+        "docs/membership-architecture.md",
+        "incidents/INC-103.md",
+        "code/TransactionConsumer.java"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q16",
+      "type": "keyword",
+      "question": "What should I do when redemption returns INSUFFICIENT_POINTS?",
+      "relevant": [
+        "docs/redemption-runbook.md"
+      ],
+      "retrieved": [
+        "docs/redemption-runbook.md",
+        "code/RewardsController.java",
+        "code/TransactionConsumer.java",
+        "code/RewardExpirationService.java",
+        "incidents/INC-102.md"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q17",
+      "type": "keyword",
+      "question": "How do I fix a balance that doesn't match the ledger?",
+      "relevant": [
+        "docs/redemption-runbook.md"
+      ],
+      "retrieved": [
+        "docs/redemption-runbook.md",
+        "docs/rewards-architecture.md",
+        "incidents/INC-101.md",
+        "code/ExpirePointsJob.java",
+        "code/TransactionConsumer.java"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q18",
+      "type": "keyword",
+      "question": "Who do I page for rewards problems?",
+      "relevant": [
+        "docs/redemption-runbook.md"
+      ],
+      "retrieved": [
+        "docs/rewards-architecture.md",
+        "docs/redemption-runbook.md",
+        "docs/membership-architecture.md",
+        "incidents/INC-103.md",
+        "code/RewardsController.java"
+      ],
+      "hit@1": 0.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 0.5
+    },
+    {
+      "id": "q19",
+      "type": "keyword",
+      "question": "How does a member become Gold?",
+      "relevant": [
+        "docs/membership-architecture.md",
+        "code/TierRecalculationJob.java"
+      ],
+      "retrieved": [
+        "docs/membership-architecture.md",
+        "code/TransactionConsumer.java",
+        "code/TierRecalculationJob.java",
+        "docs/rewards-architecture.md",
+        "docs/redemption-runbook.md"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q20",
+      "type": "keyword",
+      "question": "When are membership tiers recalculated?",
+      "relevant": [
+        "code/TierRecalculationJob.java",
+        "docs/membership-architecture.md"
+      ],
+      "retrieved": [
+        "docs/membership-architecture.md",
+        "incidents/INC-103.md",
+        "code/TierRecalculationJob.java",
+        "code/TransactionConsumer.java",
+        "docs/rewards-architecture.md"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q21",
+      "type": "keyword",
+      "question": "What is the spending threshold for the Gold tier?",
+      "relevant": [
+        "code/TierRecalculationJob.java",
+        "docs/membership-architecture.md"
+      ],
+      "retrieved": [
+        "code/TierRecalculationJob.java",
+        "docs/rewards-architecture.md",
+        "docs/membership-architecture.md",
+        "docs/redemption-runbook.md",
+        "incidents/INC-101.md"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q22",
+      "type": "keyword",
+      "question": "What account statuses can a member have?",
+      "relevant": [
+        "docs/membership-architecture.md"
+      ],
+      "retrieved": [
+        "docs/membership-architecture.md",
+        "code/TransactionConsumer.java",
+        "incidents/INC-103.md",
+        "docs/rewards-architecture.md",
+        "docs/redemption-runbook.md"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q23",
+      "type": "keyword",
+      "question": "What happens to unredeemed points when an account is closed?",
+      "relevant": [
+        "docs/membership-architecture.md"
+      ],
+      "retrieved": [
+        "docs/membership-architecture.md",
+        "docs/rewards-architecture.md",
+        "incidents/INC-102.md",
+        "code/TransactionConsumer.java",
+        "incidents/INC-101.md"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q24",
+      "type": "keyword",
+      "question": "Why were suspended members still earning points?",
+      "relevant": [
+        "incidents/INC-103.md"
+      ],
+      "retrieved": [
+        "incidents/INC-103.md",
+        "docs/membership-architecture.md",
+        "docs/rewards-architecture.md",
+        "incidents/INC-102.md",
+        "code/RewardsController.java"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q25",
+      "type": "keyword",
+      "question": "How long does Rewards cache membership lookups?",
+      "relevant": [
+        "docs/membership-architecture.md",
+        "incidents/INC-103.md"
+      ],
+      "retrieved": [
+        "incidents/INC-103.md",
+        "docs/membership-architecture.md",
+        "docs/rewards-architecture.md",
+        "docs/redemption-runbook.md",
+        "code/TransactionConsumer.java"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "q26",
+      "type": "keyword",
+      "question": "Do suspended members earn rewards?",
+      "relevant": [
+        "docs/membership-architecture.md",
+        "code/TransactionConsumer.java",
+        "incidents/INC-103.md"
+      ],
+      "retrieved": [
+        "docs/membership-architecture.md",
+        "incidents/INC-103.md",
+        "docs/rewards-architecture.md",
+        "docs/redemption-runbook.md",
+        "incidents/INC-101.md"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 0.6666666666666666,
+      "rr": 1.0
+    },
+    {
+      "id": "q27",
+      "type": "paraphrase",
+      "question": "When do a customer's loyalty credits stop being valid?",
+      "relevant": [
+        "code/RewardExpirationService.java",
+        "docs/rewards-architecture.md"
+      ],
+      "retrieved": [
+        "incidents/INC-101.md",
+        "docs/membership-architecture.md",
+        "incidents/INC-102.md",
+        "docs/rewards-architecture.md",
+        "code/ExpirePointsJob.java"
+      ],
+      "hit@1": 0.0,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "rr": 0.25
+    },
+    {
+      "id": "q28",
+      "type": "paraphrase",
+      "question": "Has there ever been an outage where customers were overpaid?",
+      "relevant": [
+        "incidents/INC-102.md"
+      ],
+      "retrieved": [
+        "incidents/INC-101.md",
+        "incidents/INC-102.md",
+        "docs/membership-architecture.md",
+        "incidents/INC-103.md",
+        "docs/redemption-runbook.md"
+      ],
+      "hit@1": 0.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 0.5
+    },
+    {
+      "id": "q29",
+      "type": "paraphrase",
+      "question": "Which class checks that a customer is in good standing before crediting them?",
+      "relevant": [
+        "code/TransactionConsumer.java"
+      ],
+      "retrieved": [
+        "docs/rewards-architecture.md",
+        "code/TransactionConsumer.java",
+        "incidents/INC-101.md",
+        "docs/redemption-runbook.md",
+        "incidents/INC-102.md"
+      ],
+      "hit@1": 0.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 0.5
+    },
+    {
+      "id": "q30",
+      "type": "paraphrase",
+      "question": "What is the nightly cleanup that takes away old credits?",
+      "relevant": [
+        "code/ExpirePointsJob.java"
+      ],
+      "retrieved": [
+        "docs/rewards-architecture.md",
+        "code/ExpirePointsJob.java",
+        "docs/redemption-runbook.md",
+        "incidents/INC-101.md",
+        "incidents/INC-103.md"
+      ],
+      "hit@1": 0.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 0.5
+    },
+    {
+      "id": "q31",
+      "type": "paraphrase",
+      "question": "How do VIP customers get upgraded?",
+      "relevant": [
+        "code/TierRecalculationJob.java",
+        "docs/membership-architecture.md"
+      ],
+      "retrieved": [
+        "docs/rewards-architecture.md",
+        "docs/membership-architecture.md",
+        "incidents/INC-101.md",
+        "code/RewardsController.java",
+        "docs/redemption-runbook.md"
+      ],
+      "hit@1": 0.0,
+      "hit@5": 1.0,
+      "recall@5": 0.5,
+      "rr": 0.5
+    },
+    {
+      "id": "q32",
+      "type": "paraphrase",
+      "question": "Why did customers lose their credits one day too soon?",
+      "relevant": [
+        "incidents/INC-101.md"
+      ],
+      "retrieved": [
+        "incidents/INC-101.md",
+        "incidents/INC-102.md",
+        "code/RewardExpirationService.java",
+        "docs/rewards-architecture.md",
+        "code/ExpirePointsJob.java"
+      ],
+      "hit@1": 1.0,
+      "hit@5": 1.0,
+      "recall@5": 1.0,
+      "rr": 1.0
+    }
+  ]
+}

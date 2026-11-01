@@ -9,3 +9,4 @@ EMBEDDING_PROVIDER = os.getenv("EMBEDDING_PROVIDER", "openai")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
 EMBEDDING_DIM = int(os.getenv("EMBEDDING_DIM", "1536"))
 LLM_MODEL = os.getenv("LLM_MODEL", "gpt-4.1-mini")
+SEARCH_MODE = os.getenv("SEARCH_MODE", "hybrid")  # vector | keyword | hybrid

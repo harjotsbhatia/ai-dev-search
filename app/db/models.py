@@ -1,11 +1,19 @@
 from datetime import datetime
 
 from pgvector.sqlalchemy import Vector
-from sqlalchemy import DateTime, Integer, String, Text, func
-from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy import Computed, DateTime, Index, Integer, String, Text, func
+from sqlalchemy.dialects.postgresql import JSONB, TSVECTOR
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 from app.config import EMBEDDING_DIM
+
+
+# Full-text search input: file path + content, with camelCase split so
+# "RewardExpirationService" also matches "reward" and "expiration".
+SEARCH_VECTOR_SQL = (
+    "to_tsvector('english', regexp_replace(file_path || ' ' || content, "
+    "'([a-z])([A-Z])', '\\1 \\2', 'g'))"
+)
 
 
 class Base(DeclarativeBase):
@@ -26,3 +34,6 @@ class Document(Base):
     # "metadata" is reserved on SQLAlchemy models, so the attribute is meta
     meta: Mapped[dict] = mapped_column("metadata", JSONB, default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    search_vector = mapped_column(TSVECTOR, Computed(SEARCH_VECTOR_SQL, persisted=True))
+
+    __table_args__ = (Index("ix_documents_search_vector", "search_vector", postgresql_using="gin"),)

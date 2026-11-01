@@ -89,13 +89,48 @@ Baseline with the offline `hash` embeddings:
 With only 11 files, any 5 results cover almost half the corpus, so hit@5 is inflated.
 hit@1 and MRR are the numbers to watch until the corpus grows.
 
+## Hybrid search
+
+`SEARCH_MODE` (or `?mode=` on `/search`, `"mode"` on `/ask`) picks the retriever:
+
+- `vector`: cosine similarity on embeddings (pgvector)
+- `keyword`: Postgres full-text search. `documents.search_vector` is a generated
+  `tsvector` over file path + content, with camelCase split so `RewardExpirationService`
+  matches "reward expiration". Query words are OR-ed and ranked with `ts_rank`.
+- `hybrid` (default): top 20 from each, merged with Reciprocal Rank Fusion,
+  `score = Σ 1 / (60 + rank)`. RRF uses only ranks, so the two retrievers' scores
+  never need to be on the same scale.
+
+```bash
+python evals/run_eval.py --mode all   # compare all three
+```
+
+Results with the offline `hash` embeddings (all 32 questions / 6 paraphrase questions):
+
+| mode | hit@1 | hit@5 | recall@5 | MRR |
+|---|---|---|---|---|
+| vector | 0.656 / 0.333 | 0.938 / 0.667 | 0.818 / 0.583 | 0.771 / 0.458 |
+| keyword | **0.812** / **0.500** | 0.938 / 0.667 | **0.896** / 0.583 | **0.862** / **0.542** |
+| hybrid | 0.719 / 0.167 | **1.000** / **1.000** | 0.880 / **0.833** | 0.852 / **0.542** |
+
+Reading these honestly:
+
+- Full-text search beats `hash` vectors outright. It stems words ("expires" ↔ "expiration"),
+  drops stopwords and splits camelCase; the hash embedding does none of that.
+- Hybrid is the only mode that gets a relevant file into the top 5 for every question,
+  but fusing in the weaker vector list costs it hit@1 against keyword alone.
+- The `hash` "vector" retriever is itself just word matching, so this fuses two lexical
+  signals. Hybrid's real test is with semantic embeddings, where the two retrievers fail
+  on different questions. Re-run with `EMBEDDING_PROVIDER=openai`.
+- The paraphrase subset is 6 questions; one question moves its scores by 0.167.
+
 ## Layout
 
 | Path | What it does |
 |---|---|
 | `app/rag/chunker.py` | Fixed-size chunks with overlap |
 | `app/rag/embeddings.py` | OpenAI embeddings, or the offline `hash` fallback |
-| `app/rag/retriever.py` | Cosine-similarity search with pgvector |
+| `app/rag/retriever.py` | Vector, full-text and hybrid (RRF) search |
 | `app/rag/generator.py` | Numbered-context prompt, citations required |
 | `app/api/search.py` | `GET /search`, `POST /ask` |
 | `ingestion/` | Load `data/`, chunk, embed, store |
@@ -107,7 +142,7 @@ hit@1 and MRR are the numbers to watch until the corpus grows.
 1. Metadata filtering (e.g. `source=code`)
 2. Better chunking
 3. ~~Evaluation dataset~~ (done, see above)
-4. BM25 + vector hybrid search
+4. ~~BM25 + vector hybrid search~~ (done with Postgres full-text + RRF, see above)
 5. Reranking
 6. Query rewriting
 7. GitHub ingestion
